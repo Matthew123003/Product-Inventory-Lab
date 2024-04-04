@@ -29,13 +29,13 @@ public class SneakerService {
     }
 
     //read all
-    public Sneaker[] findAll() {
+    public static Sneaker[] findAll() {
         // should return a basic array copy of the ArrayList
         return inventory.toArray(new Sneaker[0]);
     }
 
     //delete
-    public boolean delete(int id) {
+    public static boolean delete(int id) {
         // should remove the object with this id from the ArrayList if exits and return true.
         // Otherwise return false
         for(Sneaker sneaks : inventory){
