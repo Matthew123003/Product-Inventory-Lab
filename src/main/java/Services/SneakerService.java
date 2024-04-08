@@ -110,8 +110,8 @@ public class SneakerService {
         }
     }
 
-    public <ObjectMapper> void loadJSONData(){
-        ObjectMapper objectMapper = new ObjectMapper();
-        this.inventory = objectMapper.readValue(new File("sneaker.json"), new TypeReference<List<Sneaker>>(){});
-    }
+//    public <ObjectMapper> void loadJSONData(){
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        this.inventory = objectMapper.readValue(new File("sneaker.json"), new TypeReference<List<Sneaker>>(){});
+//    }
 }
