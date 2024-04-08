@@ -24,6 +24,7 @@ public class App {
         // application logic here
         // call methods to take user input and interface with services
         Console.printWelcome();
+        SneakerService.loadData();
         System.out.println("What would you like to do?");
         System.out.println("1. Create new sneaker");
         System.out.println("2. See existing inventory");

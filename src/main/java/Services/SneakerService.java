@@ -2,9 +2,9 @@ package Services;
 
 import Models.Sneaker;
 import Utils.CSVUtils;
+import jdk.internal.org.objectweb.asm.TypeReference;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -78,5 +78,40 @@ public class SneakerService {
         // (5)
         writer.flush();
         writer.close();
+    }
+
+    public static void loadData(){
+        // (1)
+        String csvFile = "/Users/matthew/Projects/Product-Inventory-Lab/src/main/SneakerList.csv";
+        String line = "";
+        String csvSplitBy = ",";
+
+        // (2)
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            nextId = Integer.parseInt(br.readLine());  // (3)
+
+            while ((line = br.readLine()) != null) {
+                // split line with comma
+                String[] beer = line.split(csvSplitBy);
+
+                // (4)
+                int id = Integer.parseInt(beer[0]);
+                String name = beer[1];
+                String brand = beer[2];
+                String sport = beer[3];
+                int qty = Integer.parseInt(beer[4]);
+                double price = Double.parseDouble(beer[5]);
+
+                // (5)
+                inventory.add(new Sneaker(id, name, brand, sport, 12, qty, price));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public <ObjectMapper> void loadJSONData(){
+        ObjectMapper objectMapper = new ObjectMapper();
+        this.inventory = objectMapper.readValue(new File("sneaker.json"), new TypeReference<List<Sneaker>>(){});
     }
 }
