@@ -3,6 +3,7 @@ package IO;
 import Models.Sneaker;
 import Services.SneakerService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
@@ -13,12 +14,12 @@ public class App {
 
     private SneakerService ss = new SneakerService();
 
-    public static void main(String... args) {
+    public static void main(String... args) throws IOException {
         App application = new App();
         application.init();
     }
 
-    public void init(){
+    public void init() throws IOException {
         // (4)
         // application logic here
         // call methods to take user input and interface with services
@@ -34,6 +35,7 @@ public class App {
         switch(choice){
             case 1:
                 System.out.println("Name your sneaker");
+                scanner.nextLine();
                 String name = scanner.nextLine();
                 System.out.println("Name your brand");
                 String brand = scanner.nextLine();
@@ -46,6 +48,7 @@ public class App {
                 System.out.println("Choose a price point");
                 double price = scanner.nextDouble();
                 SneakerService.create(name, brand, sport, size, qty, price);
+                SneakerService.writeToCSV();
                 break;
             case 2:
                 Sneaker[] inventory = SneakerService.findAll();
