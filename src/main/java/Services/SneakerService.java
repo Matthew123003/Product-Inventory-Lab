@@ -111,8 +111,11 @@ public class SneakerService {
         }
     }
 
-    public void loadJSONData(){
+    public void loadJSONData() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        inventory = objectMapper.readValue(new File("sneaker.json"), new TypeReference<List<Sneaker>>(){});
+        JavaType type = objectMapper.getTypeFactory().constructCollectionType(List.class, Sneaker.class);
+        List<Sneaker> list = objectMapper.readValue(new File("sneaker.json"), type);//different than readme because of missing sneaker type
+                                                                                              //ReadMe had this.inventory which was a new instance of inventory
+                                                                                              //Instead just created new list of Sneakers
     }
 }
