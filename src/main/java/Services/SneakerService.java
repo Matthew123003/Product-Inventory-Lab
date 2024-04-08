@@ -3,7 +3,8 @@ package Services;
 import Models.Sneaker;
 import Utils.CSVUtils;
 import jdk.internal.org.objectweb.asm.TypeReference;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +13,7 @@ import java.util.List;
 public class SneakerService {
     private static int nextId = 1;
 
-    private static ArrayList<Sneaker> inventory = new ArrayList<>();
+    private static List<Sneaker> inventory = new ArrayList<>();
 
 
     public static Sneaker create(String name, String brand, String sport, int size, int quantity, double price) {
@@ -110,8 +111,8 @@ public class SneakerService {
         }
     }
 
-//    public <ObjectMapper> void loadJSONData(){
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        this.inventory = objectMapper.readValue(new File("sneaker.json"), new TypeReference<List<Sneaker>>(){});
-//    }
+    public void loadJSONData(){
+        ObjectMapper objectMapper = new ObjectMapper();
+        inventory = objectMapper.readValue(new File("sneaker.json"), new TypeReference<List<Sneaker>>(){});
+    }
 }
