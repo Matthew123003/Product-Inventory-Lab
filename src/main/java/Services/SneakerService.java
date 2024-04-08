@@ -2,6 +2,7 @@ package Services;
 
 import Models.Sneaker;
 import Utils.CSVUtils;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import jdk.internal.org.objectweb.asm.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,6 +15,7 @@ import java.util.List;
 public class SneakerService {
     private static int nextId = 1;
 
+    @JsonProperty
     private static List<Sneaker> inventory = new ArrayList<>();
 
 
