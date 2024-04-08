@@ -1,5 +1,6 @@
 package IO;
 
+import Models.Sneaker;
 import Services.SneakerService;
 
 import java.util.Scanner;
@@ -28,11 +29,10 @@ public class App {
         System.out.println("3. Update inventory");
         System.out.println("4. Delete inventory");
         System.out.println("5. Get Product Reports");
-        System.out.println("6. Exit Program");
+        System.out.println("6. Exit Program\n");
         int choice = scanner.nextInt();
         switch(choice){
             case 1:
-                SneakerService ss = new SneakerService();
                 System.out.println("Name your sneaker");
                 String name = scanner.nextLine();
                 System.out.println("Name your brand");
@@ -45,19 +45,34 @@ public class App {
                 int qty = scanner.nextInt();
                 System.out.println("Choose a price point");
                 double price = scanner.nextDouble();
-                ss.create(name, brand, sport, size, qty, price);
+                SneakerService.create(name, brand, sport, size, qty, price);
+                break;
             case 2:
-                SneakerService.findAll();
+                Sneaker[] inventory = SneakerService.findAll();
+                for (Sneaker sneaker : inventory) {
+                    System.out.println("Name: " + sneaker.getName());
+                    System.out.println("Brand: " + sneaker.getBrand());
+                    System.out.println("Sport: " + sneaker.getSport());
+                    System.out.println("Size: " + sneaker.getSize());
+                    System.out.println("Quantity: " + sneaker.getQty());
+                    System.out.println("Price: " + sneaker.getPrice());
+                    System.out.println();
+                }
+                break;
             case 3:
                 SneakerService.findAll();
+                break;
             case 4:
                 System.out.println("Choose an ID to delete, check existing inventory first");
                 int id = scanner.nextInt();
                 SneakerService.delete(id);
+                break;
             case 5:
                 System.out.println("Product report");
+                break;
             case 6:
                 System.exit(0);
+                break;
         }
     }
 }

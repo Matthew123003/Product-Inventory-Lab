@@ -14,8 +14,8 @@ public class SneakerService {
     public static Sneaker create(String name, String brand, String sport, int size, int quantity, double price) {
 
         // (2)
-        Sneaker createdSneaker = new Sneaker(nextId++, name, brand, sport, size, quantity, price);
-
+        Sneaker createdSneaker = new Sneaker(nextId, name, brand, sport, size, quantity, price);
+        nextId++;
         // (3)
         inventory.add(createdSneaker);
 
