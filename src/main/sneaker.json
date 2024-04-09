@@ -39,14 +39,6 @@
   "qty" : 1,
   "price" : 100.0
 }, {
-  "id" : 6,
-  "name" : "Nike",
-  "brand" : "Dunks",
-  "sport" : "Skate",
-  "size" : 12,
-  "qty" : 1,
-  "price" : 100.0
-}, {
   "id" : 7,
   "name" : "Dunks",
   "brand" : "Nike",
@@ -60,6 +52,22 @@
   "brand" : "Jordan",
   "sport" : "Basketball",
   "size" : 12,
+  "qty" : 1,
+  "price" : 100.0
+}, {
+  "id" : 9,
+  "name" : "Matt",
+  "brand" : "Matt",
+  "sport" : "Soccer",
+  "size" : 12,
+  "qty" : 1,
+  "price" : 100.0
+}, {
+  "id" : 10,
+  "name" : "Assan",
+  "brand" : "Sandals",
+  "sport" : "Crawling",
+  "size" : 10,
   "qty" : 1,
   "price" : 100.0
 } ]

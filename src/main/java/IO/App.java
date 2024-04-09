@@ -30,10 +30,11 @@ public class App {
         System.out.println("What would you like to do?");
         System.out.println("1. Create new sneaker");
         System.out.println("2. See existing inventory");
-        System.out.println("3. Update inventory");
-        System.out.println("4. Delete inventory");
-        System.out.println("5. Get Product Reports");
-        System.out.println("6. Exit Program\n");
+        System.out.println("3. Find Sneaker by ID");
+        System.out.println("4. Update inventory");
+        System.out.println("5. Delete inventory");
+        System.out.println("6. Get Product Reports");
+        System.out.println("7. Exit Program\n");
         int choice = scanner.nextInt();
         switch(choice){
             case 1:
@@ -68,17 +69,22 @@ public class App {
                 }
                 break;
             case 3:
-                SneakerService.findAll();
+                System.out.println("Choose ID to find");
+                int id1 = scanner.nextInt();
+                SneakerService.findSneaker(id1);
                 break;
             case 4:
-                System.out.println("Choose an ID to delete, check existing inventory first");
-                int id = scanner.nextInt();
-                SneakerService.delete(id);
                 break;
             case 5:
-                System.out.println("Product report");
+                System.out.println("Choose an ID to delete, check existing inventory first");
+                int id2 = scanner.nextInt();
+                SneakerService.delete(id2);
+                SneakerService.writeToCSV();
                 break;
             case 6:
+                System.out.println("Product report");
+                break;
+            case 7:
                 System.exit(0);
                 break;
         }

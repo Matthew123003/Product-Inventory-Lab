@@ -31,7 +31,7 @@ public class SneakerService {
         return createdSneaker;
     }
 
-    public Sneaker findSneaker(int id) {
+    public static Sneaker findSneaker(int id) {
         // should take an int and return an object with that id, if exists
         if (inventory.contains(id)) {
             return inventory.get(id);
