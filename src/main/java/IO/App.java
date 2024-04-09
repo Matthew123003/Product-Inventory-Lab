@@ -25,6 +25,8 @@ public class App {
         // call methods to take user input and interface with services
         Console.printWelcome();
         SneakerService.loadData();
+        //SneakerService.loadJSONData();
+        SneakerService.loadNextId("/Users/matthew/Projects/Product-Inventory-Lab/src/main/nextID.txt");
         System.out.println("What would you like to do?");
         System.out.println("1. Create new sneaker");
         System.out.println("2. See existing inventory");
@@ -50,6 +52,8 @@ public class App {
                 double price = scanner.nextDouble();
                 SneakerService.create(name, brand, sport, size, qty, price);
                 SneakerService.writeToCSV();
+                SneakerService.writeJSONData();
+                SneakerService.saveNextId("/Users/matthew/Projects/Product-Inventory-Lab/src/main/nextID.txt");
                 break;
             case 2:
                 Sneaker[] inventory = SneakerService.findAll();

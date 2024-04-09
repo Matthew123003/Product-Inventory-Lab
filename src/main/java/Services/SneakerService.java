@@ -114,17 +114,30 @@ public class SneakerService {
         }
     }
 
-    public void loadJSONData() throws IOException {
+    public static void loadJSONData() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         JavaType type = objectMapper.getTypeFactory().constructCollectionType(List.class, Sneaker.class);
-        inventory = objectMapper.readValue(new File("sneaker.json"), type);//different than readme because of missing sneaker type
+        inventory = objectMapper.readValue(new File("/Users/matthew/Projects/Product-Inventory-Lab/src/main/sneaker.json"), type);//different than readme because of missing sneaker type
                                                                                               //ReadMe had this.inventory which was a new instance of inventory
                                                                                               //Instead just created new list of Sneakers
     }
 
-    public void writeJSONData() throws IOException {
+    public static void writeJSONData() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
-        writer.writeValue(new File("sneaker.json"), inventory);
+        writer.writeValue(new File("/Users/matthew/Projects/Product-Inventory-Lab/src/main/sneaker.json"), inventory);
+    }
+
+    // Save and Load nextId Static Data with a Text File
+    public static void saveNextId(String filename) throws IOException {
+        FileWriter writer = new FileWriter(filename);
+        writer.write(String.valueOf(nextId));
+        writer.close();
+    }
+
+    public static void loadNextId(String filename) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        nextId = Integer.parseInt(reader.readLine());
+        reader.close();
     }
 }
