@@ -67,7 +67,15 @@
   "name" : "Assan",
   "brand" : "Sandals",
   "sport" : "Crawling",
-  "size" : 10,
+  "size" : 12,
+  "qty" : 1,
+  "price" : 100.0
+}, {
+  "id" : 11,
+  "name" : "Dunks",
+  "brand" : "Nike",
+  "sport" : "Skate",
+  "size" : 12,
   "qty" : 1,
   "price" : 100.0
 } ]

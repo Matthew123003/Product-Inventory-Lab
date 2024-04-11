@@ -3,8 +3,8 @@ package Services;
 import Models.Sneaker;
 import Utils.CSVUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
-import jdk.internal.org.objectweb.asm.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.*;
 import java.io.*;
@@ -116,10 +116,9 @@ public class SneakerService {
 
     public static void loadJSONData() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        JavaType type = objectMapper.getTypeFactory().constructCollectionType(List.class, Sneaker.class);
-        inventory = objectMapper.readValue(new File("/Users/matthew/Projects/Product-Inventory-Lab/src/main/sneaker.json"), type);//different than readme because of missing sneaker type
-                                                                                              //ReadMe had this.inventory which was a new instance of inventory
-                                                                                              //Instead just created new list of Sneakers
+        //JavaType type = objectMapper.getTypeFactory().constructCollectionType(List.class, Sneaker.class);
+        inventory = objectMapper.readValue(new File("/Users/matthew/Projects/Product-Inventory-Lab/src/main/sneaker.json"), new TypeReference<List<Sneaker>>(){});
+
     }
 
     public static void writeJSONData() throws IOException {
