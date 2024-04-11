@@ -12,8 +12,8 @@ public class Sneaker {
     private int qty;
     private double price;
 
-    @JsonCreator
-    public Sneaker(@JsonProperty int id, @JsonProperty String name, @JsonProperty String brand, @JsonProperty String sport, @JsonProperty int size, @JsonProperty int qty, @JsonProperty double price){
+
+    public Sneaker(int id, String name,  String brand, String sport, int size,  int qty,  double price){
         this.id = id;
         this.name = name;
         this.brand = brand;
