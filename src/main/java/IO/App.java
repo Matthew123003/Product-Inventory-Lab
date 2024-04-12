@@ -25,7 +25,7 @@ public class App {
         // call methods to take user input and interface with services
         Console.printWelcome();
         SneakerService.loadData();
-        //SneakerService.loadJSONData();
+        SneakerService.loadJSONData();
         SneakerService.loadNextId("/Users/matthew/Projects/Product-Inventory-Lab/src/main/nextID.txt");
         System.out.println("What would you like to do?");
         System.out.println("1. Create new sneaker");

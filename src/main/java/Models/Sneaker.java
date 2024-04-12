@@ -12,6 +12,10 @@ public class Sneaker {
     private int qty;
     private double price;
 
+    public Sneaker(){
+
+    }
+
 
     public Sneaker(int id, String name,  String brand, String sport, int size,  int qty,  double price){
         this.id = id;
